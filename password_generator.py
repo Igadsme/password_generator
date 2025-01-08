@@ -1,6 +1,6 @@
 import random
 import string
-import pyperclip  # Install this package using pip install pyperclip
+import pyperclip  
 
 def generate_password(min_length, numbers=True, special_characters=True, avoid_ambiguous=True):
     letters = string.ascii_letters
@@ -49,21 +49,21 @@ def evaluate_password_strength(password):
     strength_levels = {1: "Weak", 2: "Moderate", 3: "Strong", 4: "Very Strong", 5: "Excellent"}
     return strength_levels.get(strength_score, "Weak")
 
-# User input
+
 min_length = int(input("Enter the minimum length: "))
 has_number = input("Do you want to include numbers (y/n)? ").lower() == "y"
 has_special = input("Do you want to include special characters (y/n)? ").lower() == "y"
 avoid_ambiguous = input("Avoid ambiguous characters (e.g., 1, l, O, 0) (y/n)? ").lower() == "y"
 
-# Generate and evaluate password
+
 pwd = generate_password(min_length, has_number, has_special, avoid_ambiguous)
 strength = evaluate_password_strength(pwd)
 
-# Display the password and its strength
+
 print("\nGenerated Password:", pwd)
 print("Password Strength:", strength)
 
-# Copy password to clipboard
+
 pyperclip.copy(pwd)
 print("\nThe password has been copied to your clipboard!")
 
